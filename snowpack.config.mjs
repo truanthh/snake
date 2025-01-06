@@ -27,5 +27,7 @@ export default {
   devOptions: {
     /* ... */
   },
-  buildOptions: {},
+  buildOptions: {
+    out: "build",
+  },
 };
