@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build",
+    "deploy": "gh-pages -d buld"
   },
   "dependencies": {
     "uuid": "^11.0.3"
