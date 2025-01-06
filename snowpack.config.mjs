@@ -27,8 +27,5 @@ export default {
   devOptions: {
     /* ... */
   },
-  buildOptions: {
-    out: "docs",
-    metaUrlPath: "snowpack",
-  },
+  buildOptions: {},
 };
