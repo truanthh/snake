@@ -10,7 +10,7 @@
     <title>Snowpack App</title>
     <style>
       :root {
-        --cellSize: 60px;
+        --cellSize: 40px;
         --gridSize: 12;
       }
       body {
@@ -18,15 +18,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
-      #grid__container {
-        display: grid;
-        margin-top: 40px;
-        grid-template-columns: repeat(var(--gridSize), var(--cellSize));
-        grid-template-rows: repeat(var(--gridSize), var(--cellSize));
-        border: 1px solid black;
-        gap: 1px;
-        background-color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
       .grid__cell_empty {
         background-color: white;
@@ -41,18 +33,98 @@
         height: var(--cellSize);
       }
       .grid__cell_food {
-        background-color: yellow;
+        background-color: green;
         height: var(--cellSize);
       }
-      #display {
+      #game {
+        display: flex;
         margin-top: 20px;
-        font-size: 24px;
+        gap: 40px;
+        justify-content: space-between;
+      }
+      #settings {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        /* background-color: green; */
+      }
+      #grid__container {
+        display: grid;
+        grid-template-columns: repeat(var(--gridSize), var(--cellSize));
+        grid-template-rows: repeat(var(--gridSize), var(--cellSize));
+        border: 1px solid rgba(0, 0, 0, 0.7);
+        gap: 1px;
+        /* background-color: rgba(0, 0, 0, 0.7); */
+      }
+      #display {
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+        font-size: 22px;
+        gap: 10px;
+        text-align: center;
+      }
+      #message {
+        font-size: 18px;
+        height: 22px;
+      }
+      #invisible {
+        width: 158px;
+        visibility: hidden;
+      }
+      #gridSizeSlider__container{
+        display: flex;
+        position: relative;
+      }
+      #cellSizeSlider__container{
+        display: flex;
+        position: relative;
+      }
+      #gameSpeedSlider__container{
+        display: flex;
+        position: relative;
+      }
+      #gridSizeSliderValue{
+        position: absolute;
+        left: -50px;
+      }
+      #cellSizeSliderValue{
+        position: absolute;
+        left: -50px;
+      }
+      #gameSpeedSliderValue{
+        position: absolute;
+        left: -50px;
       }
     </style>
   </head>
   <body>
     <script type="module" src="dist/index.js"></script>
-    <div id="display">head</div>
-    <div id="grid__container"></div>
+      <div id="display">
+        <div id="score"></div>
+        <div id="message"></div>
+      </div>
+    <div id="game">
+      <div id="settings">
+        <label id="gridSizeSliderLabel" for="gridSizeSlider"> Grid Size (side): </label>
+        <div id="gridSizeSlider__container">
+          <input type="range" min="1" max="100" value="50" id="gridSizeSlider">
+          <div id="gridSizeSliderValue"></div>
+        </div>
+        <label id="cellSizeSliderLabel" for="cellSizeSlider"> Cell Size (px): </label>
+        <div id="cellSizeSlider__container">
+          <input type="range" min="1" max="100" value="50" id="cellSizeSlider">
+          <div id="cellSizeSliderValue"></div>
+        </div>
+        <label id="gameSpeedSliderLAbel" for="gameSpeedSlider"> Game Speed: </label>
+        <div id="gameSpeedSlider__container">
+          <input type="range" min="1" max="100" value="50" id="gameSpeedSlider">
+          <div id="gameSpeedSliderValue"></div>
+        </div>
+          <button id="startGameButton" /> start game </button>
+      </div>
+      <div id="grid__container"></div>
+      <div id="invisible"></div>
+    </div>
   </body>
 </html>
