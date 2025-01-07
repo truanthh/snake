@@ -90,11 +90,11 @@ function update(gameSpeed: number) {
       snake.moveDir *= -1;
       newPos = snake.getNextPosition();
     }
-    grid.setValue(snake.arr.shift()!, 0);
     if (grid.getValue(newPos) === 1) {
       stopGame();
       return;
     }
+    grid.setValue(snake.arr.shift()!, 0);
     if (grid.getValue(newPos) === 2) {
       snake.arr.push(newPos);
       grid.isFoodSpawned = false;
