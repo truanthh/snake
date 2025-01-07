@@ -1,5 +1,8 @@
 {
+  "homepage": "https://truanthh.github.io/snake/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve --open",
     "build": "webpack"
   },
