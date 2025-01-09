@@ -55,7 +55,8 @@ startGameButton.addEventListener("click", () => {
   settings = {
     gridSize: parseInt(gridSizeInput.value),
     cellSize: parseInt(cellSizeInput.value),
-    gameSpeed: parseInt(gameSpeedInput.value),
+    // to revert input value so max speed is to the right of the bar
+    gameSpeed: 140 - parseInt(gameSpeedInput.value),
   };
   setSettings(settings);
   createGame(settings);
