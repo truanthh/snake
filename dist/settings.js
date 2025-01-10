@@ -4,7 +4,7 @@ exports.getSettings = getSettings;
 exports.setSettings = setSettings;
 const GRID_SIZE_DEFAULT = 12;
 const CELL_SIZE_DEFAULT = 40;
-const GAME_SPEED_DEFAULT = 60;
+const GAME_SPEED_DEFAULT = 100;
 function getSettings() {
     let s = localStorage.getItem("settings");
     let settings = s !== null

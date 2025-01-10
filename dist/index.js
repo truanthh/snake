@@ -32,7 +32,6 @@ cellSizeInput.oninput = function () {
 gameSpeedInput.oninput = function () {
     gameSpeedSliderValue.innerText = gameSpeedInput.value;
 };
-// to revert input value so max speed is to the right of the bar
 startGameButton.addEventListener("click", () => {
     settings = {
         gridSize: parseInt(gridSizeInput.value),
@@ -48,10 +47,10 @@ let render;
 let settings = (0, settings_1.getSettings)();
 gridSizeInput.value = settings.gridSize.toString();
 cellSizeInput.value = settings.cellSize.toString();
-gameSpeedInput.value = (140 - settings.gameSpeed).toString();
+gameSpeedInput.value = settings.gameSpeed.toString();
 gridSizeSliderValue.innerText = settings.gridSize.toString();
 cellSizeSliderValue.innerText = settings.cellSize.toString();
-gameSpeedSliderValue.innerText = (140 - settings.gameSpeed).toString();
+gameSpeedSliderValue.innerText = settings.gameSpeed.toString();
 gridSizeInput.min = "8";
 gridSizeInput.max = "20";
 cellSizeInput.min = "16";
@@ -90,7 +89,7 @@ function createGame(settings) {
     document.documentElement.style.setProperty("--cellSize", `${settings.cellSize}px`);
     grid = new grid_1.Grid(settings.gridSize);
     snake = new snake_1.Snake(grid);
-    render = update(140 - settings.gameSpeed);
+    render = update(settings.gameSpeed);
 }
 function stopGame() {
     clearInterval(render);

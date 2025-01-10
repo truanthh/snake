@@ -1,6 +1,6 @@
 const GRID_SIZE_DEFAULT: number = 12;
 const CELL_SIZE_DEFAULT: number = 40;
-const GAME_SPEED_DEFAULT: number = 60;
+const GAME_SPEED_DEFAULT: number = 100;
 
 export function getSettings() {
   let s: string | null = localStorage.getItem("settings");
