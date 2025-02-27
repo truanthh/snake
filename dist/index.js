@@ -89,7 +89,7 @@ function createGame(settings) {
     document.documentElement.style.setProperty("--cellSize", `${settings.cellSize}px`);
     grid = new grid_1.Grid(settings.gridSize);
     snake = new snake_1.Snake(grid);
-    render = update(settings.gameSpeed);
+    render = update(140 - settings.gameSpeed);
 }
 function stopGame() {
     clearInterval(render);
@@ -98,22 +98,22 @@ function stopGame() {
 }
 function setMoveDirection(e) {
     // up
-    if (e.code === "KeyK" || e.code === "ArrowUp") {
+    if (e.code === "KeyK" || e.code === "ArrowUp" || e.code === "KeyW") {
         snake.moveDir = 2;
         return;
     }
     // right
-    if (e.code === "KeyL" || e.code === "ArrowRight") {
+    if (e.code === "KeyL" || e.code === "ArrowRight" || e.code === "KeyD") {
         snake.moveDir = 1;
         return;
     }
     // down
-    if (e.code === "KeyJ" || e.code === "ArrowDown") {
+    if (e.code === "KeyJ" || e.code === "ArrowDown" || e.code === "KeyS") {
         snake.moveDir = -2;
         return;
     }
     // left
-    if (e.code === "KeyH" || e.code === "ArrowLeft") {
+    if (e.code === "KeyH" || e.code === "ArrowLeft" || e.code === "KeyA") {
         snake.moveDir = -1;
         return;
     }
